@@ -54,7 +54,7 @@ db.connect((e) => {
 
 
 app.use(express.json())
-// app.use('/api/users', userRoute);
+ app.use('/api/users', userRoute);
 // app.use('/api/auth', authRoute);
 // app.use('/api/products', productRoute);
 // app.use('/api/carts', cartRoute);

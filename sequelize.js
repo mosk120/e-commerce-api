@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize");
-const NewUser = require('./models/user')
+const NewUser = require('./models/User')
 
 const sequelize = new Sequelize('e_commerce_db', 'mosk120', '1488Oblivion', {
     host: 'localhost',
