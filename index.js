@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 // const mongoose = require('mongoose');
 const mysql = require('mysql');
@@ -11,6 +12,9 @@ const cartRoute = require('./routes/cart');
 const orderRoute = require('./routes/order');
 
 dotenv.config();
+app.use(cors({
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+}));
 
 app.listen(process.env.port || port, () => {
     console.log(`Server is running at http://localhost:${port}`);
@@ -54,7 +58,7 @@ db.connect((e) => {
 
 
 app.use(express.json())
- app.use('/api/users', userRoute);
+app.use('/api/users', userRoute);
 // app.use('/api/auth', authRoute);
 // app.use('/api/products', productRoute);
 // app.use('/api/carts', cartRoute);

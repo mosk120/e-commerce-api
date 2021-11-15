@@ -8,13 +8,11 @@ router.post('/register', async (req, res) => {
         const data = {
             username: req.body.username,
             email: req.body.email,
-            password: CryptoJS.AES.encrypt(
-                req.body.password,
-                process.env.PASS_SEC
-            ).toString()
+            password: req.body.password
         };
-        if (data.password === '' || data.username === '') {
-            res.json('username and password required')
+        if (!data.password || data.username === '' || data.email === '') {
+            console.log(data.password, 'password')
+            res.json('username, email and password required')
         }
 
         const user = await User.findOne({
@@ -29,7 +27,9 @@ router.post('/register', async (req, res) => {
             User.create({
                 username: data.username,
                 email: data.email,
-                password: data.password
+                password: CryptoJS.AES.encrypt(
+                    data.password,
+                    process.env.PASS_SEC).toString()
             });
             res.status(201).json('User created');
         }
