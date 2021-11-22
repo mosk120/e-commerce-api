@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-// const mongoose = require('mongoose');
 const mysql = require('mysql');
 const dotenv = require('dotenv');
 const port = 5000;
@@ -19,17 +18,6 @@ app.use(cors({
 app.listen(process.env.port || port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 })
-
-// const connectDB = async () => {
-//     try {
-//         await mongoose.connect(
-//             process.env.MONGO_URL
-//         );
-//         console.log('MongoDB connected');
-//     } catch (e) {
-//         console.log('Failed to connect to MongoDB', e);
-//     }
-// }
 
 //Create connection to mysql
 const db = mysql.createConnection({
