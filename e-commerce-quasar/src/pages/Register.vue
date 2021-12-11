@@ -4,14 +4,13 @@
       <div class="q-pa-md full-width row inline no-wrap justify-center items-start content-start shadow-2 rounded-borders">
 
         <q-form class="custom-form" action="https://some-url.com" method="post" @submit="createUser()" @reset="clearForm()">
-          <q-toolbar class="bg-white shadow-2 rounded-borders">
+          <q-toolbar class="bg-white shadow-1">
             <q-toolbar-title class="text-center">Register</q-toolbar-title>
           </q-toolbar>
           <q-input
             class="col"
             v-model="username"
             filled type="text"
-            hint="Username"
             label="Your name *"
             lazy-rules
             :rules="[ val => val && val.length > 0 || 'Please type something']"
@@ -20,7 +19,6 @@
             class="col"
             v-model="email"
             filled type="email"
-            hint="Email"
             label="Your email *"
             lazy-rules
             :rules="[
@@ -31,7 +29,6 @@
             class="col"
             v-model="password"
             filled :type="isPwd ? 'text' : 'password'"
-            hint="Password"
             label="Your password *"
             :rules="[
         val => val !== null && val !== '' || 'Please type your password',
@@ -45,8 +42,6 @@
               />
             </template>
           </q-input>
-          <div class="error" v-html="error"/>
-          <!--      <q-btn @click='createUser()' color="white" text-color="black" label="Register" />-->
           <div class="q-pa-md row justify-center">
             <q-btn label="Submit" type="submit" color="primary"/>
             <q-btn label="Reset" onclick="clearForm()" type="reset" color="primary" flat class="q-ml-sm"/>

@@ -24,10 +24,8 @@ module.exports = {
                         break;
                     case 'password':
                         res.status(400).json({
-                            error: `The password provided failed to match following rules
-                        <br>
-                        1.it must contain only the following characters: lower case, upper case, numerics
-                        <br>
+                            error: `The password provided failed to match following rules\n
+                        1.it must contain only the following characters: lower case, upper case, numerics\n
                         2.it must be at least 8 characters long and not greater than 32`
                         })
                         break;
