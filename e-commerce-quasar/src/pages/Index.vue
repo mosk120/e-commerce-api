@@ -6,12 +6,17 @@
       style="width: 200px; height: 200px"
     >
   </q-page>
+  <Products></Products>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
+import Products from 'pages/Products';
 
 export default defineComponent({
-  name: 'PageIndex'
+  name: 'PageIndex',
+  components: {
+    Products
+  }
 })
 </script>

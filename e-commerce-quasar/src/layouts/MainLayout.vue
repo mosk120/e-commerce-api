@@ -10,11 +10,10 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
+        <q-btn stretch flat label="Catalog" to="/catalog"
+        />
         <q-space/>
         <q-tabs>
-          <!--        <q-toolbar-title>-->
-          <!--          Sushi App-->
-          <!--        </q-toolbar-title>-->
           <q-route-tab
             label="Home"
             to="/"

@@ -12,6 +12,11 @@ const routes = [
         component: () => import('pages/Login.vue')
       },
       { path: '/admin', component: () => import('pages/admin/Index.vue'), meta: { requireLogin: true} },
+      {
+        name: 'catalog',
+        path: '/catalog',
+        component: () => import('pages/Products.vue')
+      },
     ]
   },
 
