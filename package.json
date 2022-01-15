@@ -19,10 +19,10 @@
     "express": "^4.17.1",
     "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.11",
-    "mysql": "^2.18.1",
+    "mongoose": "^6.1.6",
     "mysql2": "^2.3.3-rc.0",
     "nodemon": "^2.0.13",
+    "quasar": "^2.4.2",
     "sequelize": "^6.9.0",
     "vuex": "^3.6.2",
     "vuex-router-sync": "^5.0.0"

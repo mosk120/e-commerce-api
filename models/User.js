@@ -1,22 +1,26 @@
-module.exports = (sequelize, type) => {
-    return sequelize.define('User', {
-        uuid: {
-            type: type.UUID,
-            defaultValue: type.UUIDV4
-        },
-        username: {
-            type: type.STRING,
-            unique: true,
-            allowNull: false
-        },
-        email: {
-            type: type.STRING,
-            unique: true
-        },
-        password: type.STRING,
-        isAdmin: {
-            type: type.BOOLEAN,
-            defaultValue: false,
-        },
-    })
-};
+const user = (sequelize, DataTypes) => {
+    const User = sequelize.define(
+        'User', {
+            uuid: {
+                type: DataTypes.UUID,
+                defaultValue: DataTypes.UUIDV4
+            },
+            username: {
+                type: DataTypes.STRING,
+                unique: true,
+                allowNull: false
+            },
+            email: {
+                type: DataTypes.STRING,
+                unique: true
+            },
+            password: DataTypes.STRING,
+            isAdmin: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false,
+            },
+        });
+    // User.sync();
+    return User;
+}
+module.exports = user;

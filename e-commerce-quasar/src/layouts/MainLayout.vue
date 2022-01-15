@@ -49,7 +49,7 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view/>
+      <routes-view/>
     </q-page-container>
   </q-layout>
 </template>
@@ -66,7 +66,7 @@ export default defineComponent({
   methods: {
     async logout() {
       await this.$store.dispatch('auth/signOut');
-      await this.$router.push({path: '/'});
+      await this.$routes.push({path: '/'});
     }
   },
   computed: {

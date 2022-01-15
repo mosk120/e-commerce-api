@@ -1,7 +1,7 @@
 const {verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin} = require('./verifyToken');
 const CryptoJS = require("crypto-js");
 // const User = require('../models/User')
-const User = require('../sequelize');
+const User = require('../models');
 const router = require('express').Router();
 
 router.put('/:uuid', verifyTokenAndAuthorization, async (req, res) => {

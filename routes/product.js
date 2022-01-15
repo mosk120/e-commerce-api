@@ -1,4 +1,6 @@
-const Product = require('../models/Product');
+const Product = require('../models');
+
+
 const {
     verifyToken,
     verifyTokenAndAuthorization,
@@ -8,12 +10,11 @@ const router = require('express').Router();
 
 //CREATE
 
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
-    const newProduct = new Product(req.body);
-
+router.post("/", async (req, res) => {
     try {
-        const savedProduct = await newProduct.save();
-        res.status(200).json(savedProduct);
+        const product = await Product.create(req.body)
+        console.log(product);
+        res.status(200).json(product);
     } catch (e) {
         res.status(500).json(e);
     }
@@ -55,27 +56,36 @@ router.get('/find/:id', async (req, res) => {
     }
 })
 
-//GET ALL PRODCUTS
+//GET ALL PRODUCTS
 router.get('/', async (req, res) => {
-    const queryNew = req.query.new;
-    const queryCategory = req.query.category;
-    try {
-        let products;
-
-        if (queryNew) {
-            products = await Product.find().sort({createdAt: -1}).limit(5)
-        } else if (queryCategory) {
-            products = await Product.find({categories: {
-                $in: [queryCategory],
-                },
-            });
-        } else {
-            products = await Product.find();
+        try {
+            const products = await Product.findAll({
+                limit: 20
+            })
+            console.log(products);
+            res.send(products);
+        } catch (e) {
+            res.status(500).json(e);
         }
-        res.status(200).json(products);
-    } catch (e) {
-        res.status(500).json(e);
-    }
+    // const queryNew = req.query.new;
+    // const queryCategory = req.query.category;
+    // try {
+    //     let products;
+    //
+    //     if (queryNew) {
+    //         products = await Product.find().sort({createdAt: -1}).limit(5)
+    //     } else if (queryCategory) {
+    //         products = await Product.find({categories: {
+    //             $in: [queryCategory],
+    //             },
+    //         });
+    //     } else {
+    //         products = await Product.find();
+    //     }
+    //     res.status(200).json(products);
+    // } catch (e) {
+    //     res.status(500).json(e);
+    // }
 })
 
 module.exports = router

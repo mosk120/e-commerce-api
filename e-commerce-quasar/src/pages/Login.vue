@@ -72,7 +72,7 @@ export default {
             icon: 'cloud_done',
             message: 'Succeed login'
           })
-          await this.$router.push({path: '/'});
+          await this.$routes.push({path: '/'});
         }
       } catch (error) {
         this.error = error.response.data;

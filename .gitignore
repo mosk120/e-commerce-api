@@ -26,4 +26,5 @@ e-commerce-quasar/public/icons/favicon-96x96.png
 e-commerce-quasar/src/assets/quasar-logo-vertical.svg
 e-commerce-quasar/src/boot/.gitkeep
 e-commerce-quasar/src/components/EssentialLink.vue
+config/db.config.js
 
